@@ -3,8 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+  max_batches = float('inf')
+  for item in recipe:
+    try:
+      batches = ingredients[item]//recipe[item]
+      if batches < max_batches:
+        max_batches = batches
+    except:
+      max_batches = 0
+      break
+  return max_batches
+  
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
